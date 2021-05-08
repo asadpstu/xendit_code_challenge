@@ -58,7 +58,6 @@
                         "schema": {
                             "$ref": "#/definitions/CharecterID"
                         },
-                        "required" : true,
                         "description" : "characterId is a Marvel Charecter's ID"
                     }
                 ],

@@ -1,4 +1,5 @@
-const {generateHashKey,asyncMiddleware} = require("../Util/Utility");
+const {generateHashKey} = require("../Util/Utility");
+const {asyncMiddleware} = require("../Middleware/Trycatch")
 const axios = require("axios");
 const {PUBLICKEY,APIGATEWAY,REDISLIFETIME} = process.env;
 
@@ -35,10 +36,15 @@ module.exports.getCharecterDetails = asyncMiddleware(async (req, res, next) => {
     var rediskey = req.rediskey;
 
     let url = `${APIGATEWAY}/${charecterId}?ts=${ts}&apikey=${PUBLICKEY}&hash=${hashKey}`;
-    let response = null;
+    var response = null;
     
     let responseData  = await axios.get(url);
-    response = responseData.data.data.results;
+    let temp = responseData.data.data.results[0];
+    response = {
+        "id" : temp["id"],
+        "name" : temp["name"],
+        "description" : temp["description"]
+    }
     redisClient.setex(rediskey,REDISLIFETIME,JSON.stringify(response))
     
     res.status(200).send({

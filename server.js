@@ -4,11 +4,9 @@ const bodyParser = require('body-parser');
 const redis = require("redis");
 require('dotenv').config()
 
-
 //For Swagger Api Documentation for local development
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
-
 
 //importing route
 const heartbeatRoute = require("./Route/Heartbeat");
@@ -32,8 +30,6 @@ app.use(cors())
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use("/", heartbeatRoute)
 app.use("/charecters", charecterRoute);
-
-
 
 
 const server = app.listen(PORT, function () {
