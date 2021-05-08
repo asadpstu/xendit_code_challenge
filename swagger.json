@@ -1,0 +1,110 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Xendit Coding Challenge",
+        "description": "Xendit Coding Challenge",
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+        }
+    },
+    "host": "localhost:8080",
+    "basePath": "/",
+    "tags": [
+        {
+            "name": "Heartbeat",
+            "description": "Check service is live or not?"
+        },
+        {
+            "name": "MarvelCharecter",
+            "description": "Marvel Charecters Api Usage"
+        }
+    ],
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/charecters": {
+            "get": {
+                "tags": [
+                    "MarvelCharecter"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/charecters/{characterId}": {
+            "get": {
+                "tags": [
+                    "MarvelCharecter"
+                ],
+                "parameters": [
+                    {
+                        "name": "characterId",
+                        "in": "path",
+                        "schema": {
+                            "$ref": "#/definitions/CharecterID"
+                        },
+                        "required" : true,
+                        "description" : "characterId is a Marvel Charecter's ID"
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/heartbeat": {
+            "get": {
+                "tags": [
+                    "Heartbeat"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "No parameter needed"
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "CharecterID": {
+            "required": [
+                "characterId"
+            ],
+            "properties": {
+                "characterId": {
+                    "type": "interger"
+                }
+            }
+        }
+    }
+}
