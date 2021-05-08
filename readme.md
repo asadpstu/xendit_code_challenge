@@ -1,4 +1,4 @@
-# XENDIT Coding Challenge
+## XENDIT Coding Challenge
 
 ### How to Reduce Latency? What is my strategy for this given task?
 - https://gateway.marvel.com:443/v1/public/characters this is a public api and after observation I've found that - Its reponse data doesn't change frequently. It provide consistant data. To reduce the latency of same subsequent api request, I'm keeping the first hit response data  into Redis. You can set the time from .env file that - for how long you want to keep the record in Redis. For now, I've set the time to 60 seconds to expire. If a user hit this same api within 60 seconds, backend will serve data from redis and thats how it will reduce latency.
@@ -12,7 +12,7 @@ We could use AWS elastic chache or Memcache. But those will work only in VPC.
 
 #### Environment Variable
 - copy and paste .env file in the root directory
-- If you dont see the .env file, please turn on show hidden files options in you computer
+- If you dont see the .env file, please "turn on" show hidden files options in you computer.
 
 #### Redis Installation
 -- if you are in MAC install redis and start redis.
@@ -25,15 +25,15 @@ We could use AWS elastic chache or Memcache. But those will work only in VPC.
 
 -- Make sure your redis server is up and running
 
-##### To run Unit & Integration Test 
+#### To run Unit & Integration Test 
 - npm run test 
 
-##### Run Project
+#### Run Project
 - npm start 
 - npm run dev  
 - npm run local
 
-##### END-TO-END Testing
+#### END-TO-END Testing
 - Open your browser and go to http://localhost:8080
 - For Swagger Documentation http://localhost:8080/api-docs
 
