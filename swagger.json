@@ -71,7 +71,7 @@
                 }
             }
         },
-        "/heartbeat": {
+        "/": {
             "get": {
                 "tags": [
                     "Heartbeat"

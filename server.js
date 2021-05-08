@@ -31,6 +31,10 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use("/", heartbeatRoute)
 app.use("/charecters", charecterRoute);
 
+app.use(function (req, res, next) {
+  res.status(404).send("Sorry can't find that!")
+})
+
 
 const server = app.listen(PORT, function () {
   console.log("App Environment :", NODE_ENV)
