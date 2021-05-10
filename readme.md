@@ -30,9 +30,9 @@ We could use AWS elastic chache or Memcache. But those will work only in VPC.
 
 #### RUN PROJECT
 
-- Cluster mode :   ##### npm start     
-- Dev Environment:  ##### npm run dev   
-- Local Environment: ##### npm run local 
+- Cluster mode :   #### npm start     
+- Dev Environment:  #### npm run dev   
+- Local Environment: #### npm run local 
 
 #### END-TO-END Testing
 - Open your browser and go to http://localhost:8080
