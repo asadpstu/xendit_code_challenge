@@ -1,5 +1,7 @@
 const macAddress = require('macaddress');
 module.exports.getRedisRecord = async (req, res, next) => { 
+    req.offset = req.query.offset;
+    req.limit = req.query.limit;
     redisClient.get("PUBLIC_DATA",function(error,data){
         if(error) next();
         else
